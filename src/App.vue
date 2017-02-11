@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <Tab> </Tab>
+    <tabs>
+      <tab name = "First Tab" :selected ="true">
+        <h1>This is the first tab</h1>
+      </tab>
+      <tab name = "Second Tab">
+        <h1>This is the second tab</h1>
+      </tab>
+      <tab name = "Third Tab">
+        <h1>This is the third tab</h1>
+      </tab>
+    </tabs>
   </div>
 </template>
 
 <script>
 
-import Tab from './components/Tab'
+import tabs from './components/tabs.vue'
+import tab from './components/tab.vue'
 
 
 export default {
@@ -23,10 +34,12 @@ export default {
   // },
 
   components: {
-    Tab
+    tabs,
+    tab
   }
 
 }
+
 </script>
 
 <style>
