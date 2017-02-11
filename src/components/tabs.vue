@@ -1,13 +1,15 @@
 <template>
   <div>
-      <div class="tabs">
+      <div class="tabs is-centered is-medium ">
+        <!-- <transition name= "fade"> -->
           <ul>
-              <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
+              <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }" >
                   <a :href="tab.href" @click="selectTab(tab)">{{ tab.name }}</a>
               </li>
               <!-- <li class="is-active"><a href="#">Picture</a></li>
               <li><a href="#">Music</a></li> -->
           </ul>
+        <!-- </transision> -->
       </div>
 
       <div class="tabs-detail">

@@ -1,6 +1,9 @@
 <template>
   <div id="app">
+    <hero></hero>
+    <br>
     <tabs>
+      <progress class="progress is-primary" value="30" max="100">30%</progress>
       <tab name = "First Tab" :selected ="true">
         <h1>This is the first tab</h1>
       </tab>
@@ -18,6 +21,8 @@
 
 import tabs from './components/tabs.vue'
 import tab from './components/tab.vue'
+import hero from './components/hero.vue'
+
 
 
 export default {
@@ -35,7 +40,8 @@ export default {
 
   components: {
     tabs,
-    tab
+    tab,
+    hero
   }
 
 }
