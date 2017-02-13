@@ -3,15 +3,24 @@
     <hero></hero>
     <br>
     <tabs>
-      <progress class="progress is-primary" value="30" max="100">30%</progress>
-      <tab name = "First Tab" :selected ="true">
-        <h1>This is the first tab</h1>
+      <!-- <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress> -->
+      <tab name = "Basic" :selected ="true">
+        <h1>Introduction of the course</h1>
+        <basic></basic>
       </tab>
-      <tab name = "Second Tab">
-        <h1>This is the second tab</h1>
+      <tab name = "Description">
+        <h1>Class Description</h1>
+        <description></description>
       </tab>
-      <tab name = "Third Tab">
-        <h1>This is the third tab</h1>
+      <tab name = "Assignments & Grades">
+        <h1>Assignments & Grades</h1>
+      </tab>
+      <tab name = "Key Date">
+        <h1>Key Date</h1>
+      </tab>
+      <tab name = "Additional">
+        <h1>Addtional</h1>
+        <additional></additional>
       </tab>
     </tabs>
   </div>
@@ -22,6 +31,10 @@
 import tabs from './components/tabs.vue'
 import tab from './components/tab.vue'
 import hero from './components/hero.vue'
+import basic from './components/basic.vue'
+import description from './components/description.vue'
+import additional from './components/additional.vue'
+// import nextBtn from './components/nextBtn.vue'
 
 
 
@@ -29,25 +42,43 @@ export default {
   name: 'app',
 
   mounted () {
-    console.log('App -> mounted.')
+    console.log('App -> mounted.');
   },
 
-  // data () {
-  //   return {
-  //     msg: 'Welcome to Your Vue.js App'
-  //   }
-  // },
+  data () {
+    return {
+      currentQuestion : 20,
+    }
+  },
+  computed:{
+    updateProgress(){
+      this.currentQuestion +=10;
+    }
+  },
 
   components: {
     tabs,
     tab,
-    hero
+    hero,
+    basic,
+    description,
+    additional
+    // nextBtn
   }
 
 }
-
 </script>
 
+
 <style>
+
+  .fixed {
+  	position: fixed;
+  	top: 0;
+  	height: 90px;
+  	z-index: 1;
+    background-color: white;
+    width:1440px;
+  }
 
 </style>

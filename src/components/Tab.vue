@@ -1,8 +1,10 @@
 <template lang="html">
-  <transition name="slide-fade">
-    <div v-show="isActive" class ="content has-text-centered"><slot></slot></div>
-  <!-- <div><slot></slot></div> -->
-  </transition>
+  <div>
+    <transition name="slide-fade">
+      <div v-show="isActive" class ="content has-text-centered"><slot></slot></div>
+    <!-- <div><slot></slot></div> -->
+    </transition>
+  </div>
 </template>
 
 <script>
