@@ -17,7 +17,7 @@
       <div class="tabs-detail">
           <slot></slot>
       </div>
-      <a class="button is-primary is-large is-pulled-right" @click ="">Next</a>
+      <a class="button is-primary is-large is-pulled-right" @click ="">Next &nbsp<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></i></a>
       <!-- How
       to
       select

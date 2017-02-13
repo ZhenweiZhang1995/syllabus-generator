@@ -99,7 +99,6 @@ export default {
       newItemTitle: '',
       newItemContent: '',
       finished: false,
-      newFavorite: false,
       editing: false,
       items: [{
         itemTitle: "Seek for help",
