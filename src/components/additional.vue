@@ -28,12 +28,26 @@
 
 
     <br>
+
     <section>
+      <!-- <div class="card"> -->
     <template v-for="item in items">
-      <label class="label">{{ item.itemTitle }}</label>
-      <textarea class="textarea"  v-model ="item.itemContent"></textarea>
+      <transition name="fade">
+        <div v-show ="!item.finished">
+          <div>
+            <label class="label">{{ item.itemTitle }}</label>
+          </div>
+            <textarea class="textarea"  v-model ="item.itemContent"></textarea>
+            <div class="control">
+              <a class="button is-primary" @click="done(item)">Delete</a>
+            </div>
+        </div>
+      </transition>
     </template>
+    
     </section>
+
+
 
     <br>
     <br>
@@ -83,16 +97,19 @@ export default {
 "accessibility.unc.edu/",
       newItemTitle: '',
       newItemContent: '',
-      // finished: false,
-      // newFavorite: false,
-      // editing: false,
+      finished: false,
+      newFavorite: false,
+      editing: false,
       items: [{
         itemTitle: "Watch a movie",
         itemContent: "Zootopia on Sunday 6pm ",
+        finished: false,
+        editing: false
       }]
       }
 
   },
+
   methods: {
     cancel() {
         this.newItemTitle = '';
@@ -102,13 +119,53 @@ export default {
         this.items.push({
           itemTitle: this.newItemTitle,
           itemContent: this.newItemContent,
-          // finished: false,
-          // editing: false
+          finished: false,
+          editing: false
         })
         this.newItemTitle = '';
         this.newItemContent = '';
+        this.newFavorite = false;
       },
+      done(i) {
+        i.finished = true;
+      },
+      editBtn(i) {
+        // i.itemTitle = "";
+        // i.itemContent = "";
+        i.editing = true;
+      },
+      editStatus(i) {
+        return i.editing;
+      },
+      finishEditBtn(i) {
+        i.editing = false;
+      }
   },
+
+  // methods: {
+  //   cancel() {
+  //       this.newItemTitle = '';
+  //       this.newItemContent = '';
+  //     },
+  //   addItem() {
+  //       this.items.push({
+  //       itemTitle: this.newItemTitle,
+  //       itemContent: this.newItemContent,
+  //       })
+  //       this.newItemTitle = '';
+  //       this.newItemContent = '';
+  //       finished: false;
+  //     },
+  //   delete(i) {
+  //       i.finished = true;
+  //     },
+  // },
+
+
+
+
+
+
 }
 </script>
 

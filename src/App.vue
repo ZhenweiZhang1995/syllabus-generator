@@ -12,11 +12,12 @@
         <h1>Class Description</h1>
         <description></description>
       </tab>
-      <tab name = "Assignments & Grades">
-        <h1>Assignments & Grades</h1>
+      <tab name = "Homework">
+        <h1>Homework & Assignments</h1>
+        <assignment></assignment>
       </tab>
-      <tab name = "Key Date">
-        <h1>Key Date</h1>
+      <tab name = "Exam & Grades">
+        <h1>Exam & Grades</h1>
       </tab>
       <tab name = "Additional">
         <h1>Addtional</h1>
@@ -34,7 +35,7 @@ import hero from './components/hero.vue'
 import basic from './components/basic.vue'
 import description from './components/description.vue'
 import additional from './components/additional.vue'
-// import nextBtn from './components/nextBtn.vue'
+import assignment from './components/assignment.vue'
 
 
 
@@ -45,11 +46,11 @@ export default {
     console.log('App -> mounted.');
   },
 
-  data () {
-    return {
-      currentQuestion : 20,
-    }
-  },
+  // data () {
+  //   return {
+  //     currentQuestion : 20,
+  //   }
+  // },
   computed:{
     updateProgress(){
       this.currentQuestion +=10;
@@ -62,8 +63,8 @@ export default {
     hero,
     basic,
     description,
-    additional
-    // nextBtn
+    additional,
+    assignment
   }
 
 }
