@@ -2,13 +2,13 @@
   <div class="description">
     <br>
     <div class="control">
-      <textarea class="textarea" placeholder="Class Description" v-model ="newItemContent"></textarea>
+      <textarea class="textarea" placeholder="Class Description" ></textarea>
     </div>
 
     <br>
     <label class="label">Prequisite and Prior knowledge</label>
     <div class="control">
-      <textarea class="textarea" placeholder="Class Prerequisites" v-model ="newItemContent"></textarea>
+      <textarea class="textarea" placeholder="Class Prerequisites" v-model ="prequisite"></textarea>
     </div>
   </div>
 
@@ -16,6 +16,11 @@
 
 <script>
 export default {
+  data(){
+    return{
+      prequisite:"There is no prerequisite in this class",
+    }
+  }
 }
 </script>
 

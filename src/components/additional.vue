@@ -1,6 +1,13 @@
 <template lang="html">
   <div class="additional">
     <br>
+    <label class="label">Class attendance</label>
+    <div class="control">
+      <textarea class="textarea" placeholder="Class Description" v-model ="attendence">
+      </textarea>
+    </div>
+
+    <br>
     <label class="label">Honor Code and Plagiarism</label>
     <div class="control">
       <textarea class="textarea" placeholder="Class Description" v-model ="honor_code">
@@ -19,6 +26,37 @@
       <textarea class="textarea" placeholder="Class Prerequisites" v-model ="special"></textarea>
     </div>
 
+
+    <br>
+    <section>
+    <template v-for="item in items">
+      <label class="label">{{ item.itemTitle }}</label>
+      <textarea class="textarea"  v-model ="item.itemContent"></textarea>
+    </template>
+    </section>
+
+    <br>
+    <br>
+    <section>
+      <label class="label">Add new item</label>
+      <div class="control is-grouped">
+        <div class="control is-expanded">
+          <input type="text" class="input" placeholder="Item Title" v-model ="newItemTitle"/>
+        </div>
+        <div class="control">
+          <a class="button is-primary" @click="addItem">Create</a>
+        </div>
+      </div>
+      <div class="control">
+        <textarea class="textarea" placeholder="Item content" v-model ="newItemContent"></textarea>
+      </div>
+      <div class="control">
+        <a class="button" @click="cancel">Cancel</a>
+      </div>
+    </section>
+
+
+
   </div>
 </template>
 
@@ -26,6 +64,9 @@
 export default {
   data(){
     return{
+      attendence:"Students are expected to attend all classes. An attendance sign-in sheet may be passed around"+
+"during lectures to monitor attendance. You are responsible for material covered and"+
+"announcements made in class, whether or not you are in class.",
       honor_code: "It is expected that each student in this course will conduct himself or herself within the guidelines of the UNC"+
 "honor code. All academic work should be done with the high level of honesty and integrity this university demands."+
 "You are expected to produce your own work in this class. If you have any questions about your responsibility or"+
@@ -40,9 +81,34 @@ export default {
       special:"If you require special accommodations to attend or participate in this course, please let the instructor know as "+
 "soon as possible. If you need information about disabilities visit the Accessibility Services website at https://"+
 "accessibility.unc.edu/",
-    }
+      newItemTitle: '',
+      newItemContent: '',
+      // finished: false,
+      // newFavorite: false,
+      // editing: false,
+      items: [{
+        itemTitle: "Watch a movie",
+        itemContent: "Zootopia on Sunday 6pm ",
+      }]
+      }
 
-  }
+  },
+  methods: {
+    cancel() {
+        this.newItemTitle = '';
+        this.newItemContent = '';
+      },
+      addItem() {
+        this.items.push({
+          itemTitle: this.newItemTitle,
+          itemContent: this.newItemContent,
+          // finished: false,
+          // editing: false
+        })
+        this.newItemTitle = '';
+        this.newItemContent = '';
+      },
+  },
 }
 </script>
 
