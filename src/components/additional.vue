@@ -35,23 +35,20 @@
       <transition name="fade">
         <div v-show ="!item.finished">
           <div>
-            <label class="label">{{ item.itemTitle }}</label>
+            <!-- <label class="label">{{ item.itemTitle }}</label> -->
+            <input type="text" class="input center-input" placeholder="Item Title" v-model ="item.itemTitle"/>
           </div>
-            <textarea class="textarea"  v-model ="item.itemContent"></textarea>
+            <textarea class="textarea"  placeholder="Item Content" v-model ="item.itemContent"></textarea>
             <div class="control">
               <a class="button is-primary" @click="done(item)">Delete</a>
             </div>
         </div>
       </transition>
     </template>
-    
+
     </section>
 
-
-
-    <br>
-    <br>
-    <section>
+    <!-- <section>
       <label class="label">Add new item</label>
       <div class="control is-grouped">
         <div class="control is-expanded">
@@ -67,7 +64,11 @@
       <div class="control">
         <a class="button" @click="cancel">Cancel</a>
       </div>
-    </section>
+    </section> -->
+
+    <p class="control has-addons has-addons-centered">
+      <a class="button is-primary is-medium" @click="addItem">Add New Item</a>
+    </p>
 
 
 
@@ -101,8 +102,8 @@ export default {
       newFavorite: false,
       editing: false,
       items: [{
-        itemTitle: "Watch a movie",
-        itemContent: "Zootopia on Sunday 6pm ",
+        itemTitle: "Seek for help",
+        itemContent: "Your can seek for help from me anytime by e-mail/by appointment",
         finished: false,
         editing: false
       }]
@@ -124,45 +125,11 @@ export default {
         })
         this.newItemTitle = '';
         this.newItemContent = '';
-        this.newFavorite = false;
       },
       done(i) {
         i.finished = true;
       },
-      editBtn(i) {
-        // i.itemTitle = "";
-        // i.itemContent = "";
-        i.editing = true;
-      },
-      editStatus(i) {
-        return i.editing;
-      },
-      finishEditBtn(i) {
-        i.editing = false;
-      }
   },
-
-  // methods: {
-  //   cancel() {
-  //       this.newItemTitle = '';
-  //       this.newItemContent = '';
-  //     },
-  //   addItem() {
-  //       this.items.push({
-  //       itemTitle: this.newItemTitle,
-  //       itemContent: this.newItemContent,
-  //       })
-  //       this.newItemTitle = '';
-  //       this.newItemContent = '';
-  //       finished: false;
-  //     },
-  //   delete(i) {
-  //       i.finished = true;
-  //     },
-  // },
-
-
-
 
 
 
@@ -173,5 +140,8 @@ export default {
   .additional{
     padding-left: 20%;
     padding-right: 20%;
+  }
+  .center-input{
+    text-align:center;
   }
 </style>
