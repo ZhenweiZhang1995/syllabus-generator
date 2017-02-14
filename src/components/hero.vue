@@ -20,7 +20,7 @@
             <a class="nav-item is-active">
               Home
             </a>
-            <a class="nav-item">
+            <a class="nav-item" href="#Preview">
               Review your syllabus
             </a>
             <a class="nav-item">

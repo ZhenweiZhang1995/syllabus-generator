@@ -53,7 +53,7 @@
       <input class="input" type="text" placeholder="Number" v-model ="newAssignNum">
       <input class="input is-expanded" type="text" placeholder="Description" v-model ="newItemDescription">
       <p class="control">
-        <a class="button is-primary" @click="addItem">+</a>
+        <a class="button is-info" @click="addItem">+</a>
       </p>
     </div>
     <p class="control">
@@ -61,7 +61,7 @@
     </p>
   </form> -->
 
-    <p class="control has-addons has-addons-centered">
+    <p class="control has-addons has-addons-centered adjustSize">
       <a class="button is-primary is-medium" @click="addItem">Add New Assignment/Paper/Project</a>
     </p>
 
@@ -118,5 +118,8 @@ export default {
   .assignment{
     padding-left: 20%;
     padding-right: 20%;
+  }
+  .adjustSize{
+    height: 40px;
   }
 </style>

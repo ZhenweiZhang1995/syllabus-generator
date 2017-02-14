@@ -3,7 +3,6 @@
     <hero></hero>
     <br>
     <tabs>
-      <!-- <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress> -->
       <tab name = "Basic" :selected ="true">
         <h1>Introduction of the course</h1>
         <basic></basic>
@@ -18,12 +17,22 @@
       </tab>
       <tab name = "Exam & Grades">
         <h1>Exam & Grades</h1>
+        <grade></grade>
       </tab>
       <tab name = "Additional">
         <h1>Addtional</h1>
-        <additional></additional>
+        <additional :presets="presets"></additional>
+      </tab>
+      <tab name = "Preview">
+        <h1>Preview of your syllabus</h1>
       </tab>
     </tabs>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <footerCustom></footerCustom> -->
   </div>
 </template>
 
@@ -36,21 +45,20 @@ import basic from './components/basic.vue'
 import description from './components/description.vue'
 import additional from './components/additional.vue'
 import assignment from './components/assignment.vue'
+import grade from './components/grade.vue'
+import footerCustom from './components/footerCustom.vue'
+import axios from 'axios'
 
 
 
 export default {
   name: 'app',
-
-  mounted () {
-    console.log('App -> mounted.');
+  data () {
+    return {
+      // currentQuestion : 20,
+      presets:[]
+    }
   },
-
-  // data () {
-  //   return {
-  //     currentQuestion : 20,
-  //   }
-  // },
   computed:{
     updateProgress(){
       this.currentQuestion +=10;
@@ -64,15 +72,24 @@ export default {
     basic,
     description,
     additional,
-    assignment
+    assignment,
+    grade,
+    footerCustom
+  },
+
+  mounted () {
+    // console.log('App -> mounted.');
+    axios.get('/preset/preset.json')
+      .then((response) => {
+        console.log(response.data)
+        this.presets = response.data
+      })
   }
 
 }
 </script>
 
-
 <style>
-
   .fixed {
   	position: fixed;
   	top: 0;
@@ -81,5 +98,4 @@ export default {
     background-color: white;
     width:1440px;
   }
-
 </style>
