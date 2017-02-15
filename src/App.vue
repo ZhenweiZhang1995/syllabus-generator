@@ -3,7 +3,17 @@
     <hero></hero>
     <br>
     <tabs>
-      <tab name = "Basic" :selected ="true">
+      <tab v-for="tabnav in tabnavs">
+        {{ tabnav.title }}
+        <basic v-if="this.activeTab.componentName === 'basic'"></basic>
+        <description v-if="this.activeTab.componentName === 'description'"></description>
+        <assignment v-if="this.activeTab.componentName === 'assignment'"></assignment>
+        <grade v-if="this.activeTab.componentName === 'grade'"></grade>
+        <additional v-if="this.activeTab.componentName === 'additional'"></additional>
+        <preview v-if="this.activeTab.componentName === 'preview'"></preview>
+
+      </tab>
+      <!-- <tab name = "Basic" :selected ="true">
         <h1>Introduction of the course</h1>
         <basic></basic>
       </tab>
@@ -25,12 +35,9 @@
       </tab>
       <tab name = "Preview">
         <h1>Preview of your syllabus</h1>
-      </tab>
+      </tab> -->
+
     </tabs>
-    <br>
-    <br>
-    <br>
-    <br>
     <br>
     <!-- <footerCustom></footerCustom> -->
   </div>
@@ -46,6 +53,7 @@ import description from './components/description.vue'
 import additional from './components/additional.vue'
 import assignment from './components/assignment.vue'
 import grade from './components/grade.vue'
+import preview from './components/preview.vue'
 import footerCustom from './components/footerCustom.vue'
 import axios from 'axios'
 
@@ -53,12 +61,49 @@ import axios from 'axios'
 
 export default {
   name: 'app',
+  props:{
+    activeTab:{componentName:'basic'}
+  },
   data () {
     return {
-      // currentQuestion : 20,
-      presets:[]
+      // activeTab: null,
+      tabnavs: [
+      {
+        title: 'Basic',
+        text: 'Introduction of the course',
+        componentName: 'basic',
+      },
+      {
+        title: 'Description',
+        text: 'Class Description',
+        componentName: 'description'
+      },
+      {
+        title: 'Homework',
+        text: 'Homework & Assignments',
+        componentName: 'assignment'
+      },
+      {
+        title: 'Exam & Grades',
+        text: 'Exam & Grades',
+        componentName: 'grade'
+      },
+      {
+        title: 'Additional',
+        text: 'Additional',
+        componentName: 'additional'
+      },
+      {
+        title: 'Preview',
+        text: 'Preview of your syllabus',
+        componentName: 'preview'
+      },
+    ],
+    // ,
+      // presets:[],
     }
   },
+
   computed:{
     updateProgress(){
       this.currentQuestion +=10;
