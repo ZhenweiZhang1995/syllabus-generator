@@ -78,17 +78,18 @@
 <script>
 export default {
   props:[
-    'presets'
+    'presets',
+    'tab'
   ],
 
   data(){
     return{
       attendence:
-      this.presets.attendence,
+      // this.presets.attendence,
 
-//       "Students are expected to attend all classes. An attendance sign-in sheet may be passed around"+
-// "during lectures to monitor attendance. You are responsible for material covered and"+
-// "announcements made in class, whether or not you are in class.",
+      "Students are expected to attend all classes. An attendance sign-in sheet may be passed around"+
+"during lectures to monitor attendance. You are responsible for material covered and"+
+"announcements made in class, whether or not you are in class.",
       honor_code: "It is expected that each student in this course will conduct himself or herself within the guidelines of the UNC"+
 "honor code. All academic work should be done with the high level of honesty and integrity this university demands."+
 "You are expected to produce your own work in this class. If you have any questions about your responsibility or"+

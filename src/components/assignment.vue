@@ -89,6 +89,7 @@ export default {
       }]
     }
   },
+  props: ['tab'],
   methods: {
     cancel() {
         this.newAssignNum = '';

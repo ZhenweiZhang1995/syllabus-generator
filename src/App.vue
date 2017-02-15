@@ -2,17 +2,47 @@
   <div id="app">
     <hero></hero>
     <br>
-    <tabs>
-      <tab v-for="tabnav in tabnavs">
-        {{ tabnav.title }}
-        <basic v-if="this.activeTab.componentName === 'basic'"></basic>
-        <description v-if="this.activeTab.componentName === 'description'"></description>
-        <assignment v-if="this.activeTab.componentName === 'assignment'"></assignment>
-        <grade v-if="this.activeTab.componentName === 'grade'"></grade>
-        <additional v-if="this.activeTab.componentName === 'additional'"></additional>
-        <preview v-if="this.activeTab.componentName === 'preview'"></preview>
 
-      </tab>
+    <div class="fixAtTop">
+      <!-- <div class="is-centered is-medium "> -->
+        <!-- <transition name= "fade"> -->
+        <div class="tabs is-centered is-medium">
+          <ul class="tabs">
+              <li v-for="tab in tabs">
+                  <a :href="tab.href" @click="changeTab(tab)">{{ tab.title }}</a>
+              </li>
+          </ul>
+        </div>
+        <!-- </transision> -->
+      <!-- </div> -->
+
+      <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
+    </div>
+
+    <transition name="slide-fade">
+      <div v-if="activeTab" class="content has-text-centered">
+        <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab"></basic>
+        <description v-if="activeTab.componentName === 'description'" :tab="activeTab"></description>
+        <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab"></assignment>
+        <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab"></grade>
+        <additional v-if="activeTab.componentName === 'additional'" :tab="activeTab"></additional>
+        <preview v-if="activeTab.componentName === 'preview'":tab="activeTab"></preview>
+      </div>
+    </transition>
+
+
+    <a class="button is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
+      <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+    </a>
+    <a class="button is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
+      <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    </a>
+    <a class="button is-primary is-large is-pulled-right" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
+      <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+    </a>
+
+
+
       <!-- <tab name = "Basic" :selected ="true">
         <h1>Introduction of the course</h1>
         <basic></basic>
@@ -37,7 +67,7 @@
         <h1>Preview of your syllabus</h1>
       </tab> -->
 
-    </tabs>
+    <!-- </tabs> -->
     <br>
     <!-- <footerCustom></footerCustom> -->
   </div>
@@ -45,8 +75,8 @@
 
 <script>
 
-import tabs from './components/tabs.vue'
-import tab from './components/tab.vue'
+// import tabs from './components/tabs.vue'
+// import tab from './components/tab.vue'
 import hero from './components/hero.vue'
 import basic from './components/basic.vue'
 import description from './components/description.vue'
@@ -61,13 +91,14 @@ import axios from 'axios'
 
 export default {
   name: 'app',
-  props:{
-    activeTab:{componentName:'basic'}
-  },
+  // props:{
+  //   activeTab:{componentName:'basic'}
+  // },
   data () {
     return {
-      // activeTab: null,
-      tabnavs: [
+      activeTab: null,
+      currentQuestion : 20,
+      tabs: [
       {
         title: 'Basic',
         text: 'Introduction of the course',
@@ -105,24 +136,50 @@ export default {
   },
 
   computed:{
-    updateProgress(){
-      this.currentQuestion +=10;
+    href() {
+        return '#' + this.title.toLowerCase().replace(/ /g, '-');
     }
+  },
+  methods:{
+    changeTab (tab) {
+      this.activeTab = tab
+    },
+    formContinue(){
+      var currentIndex = this.tabs.indexOf(this.activeTab);
+      return currentIndex < (this.tabs.length-1);
+    },
+    next () {
+      var currentIndex = this.tabs.indexOf(this.activeTab)
+      currentIndex++
+      if (currentIndex > this.tabs.length - 1) {
+        currentIndex = 0
+      }
+      this.activeTab = this.tabs[currentIndex]
+    },
+    prev () {
+      var currentIndex = this.tabs.indexOf(this.activeTab)
+      currentIndex--
+      if (currentIndex < 0) {
+        currentIndex = this.tabs.length - 1
+      }
+      this.activeTab = this.tabs[currentIndex]
+    }
+
   },
 
   components: {
-    tabs,
-    tab,
     hero,
     basic,
     description,
     additional,
     assignment,
     grade,
-    footerCustom
+    footerCustom,
+    preview
   },
 
   mounted () {
+    this.activeTab = this.tabs[0];
     // console.log('App -> mounted.');
     axios.get('/preset/preset.json')
       .then((response) => {
@@ -142,5 +199,26 @@ export default {
   	z-index: 1;
     background-color: white;
     width:1440px;
+  }
+  .content{
+    padding: 3%;
+  }
+
+  .slide-fade-enter-active {
+  transition: all .8s ease;
+  }
+  /*.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }*/
+  .slide-fade-enter, .slide-fade-leave-to
+  {
+  transform: translateX(10px);
+  opacity: 0;
+  }
+  .button{
+    margin-right: 15%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    margin-left: 15%;
   }
 </style>

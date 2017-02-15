@@ -20,7 +20,8 @@ export default {
     return{
       prequisite:"There is no prerequisite in this class",
     }
-  }
+  },
+  props: ['tab']
 }
 </script>
 

@@ -14,9 +14,9 @@
 
       <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
     </div>
-      <div class="tabs-detail">
+      <!-- <div class="tabs-detail">
           <slot></slot>
-      </div>
+      </div> -->
       <a class="button is-primary is-large is-pulled-right" v-if="formContinue()" @click ="">Next &nbsp
         <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
       </a>
