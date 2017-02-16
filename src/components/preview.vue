@@ -1,7 +1,7 @@
 <template lang="html">
   <div id="pdf" class="preview">
     <p>
-      Hello World!
+      <!-- {{  }} -->
     </p>
   </div>
 
@@ -9,7 +9,9 @@
 
 <script>
 export default {
-  props: ['tab']
+  props: ['tab',
+          'additional'
+      ]
 }
 </script>
 

@@ -50,24 +50,6 @@
 
     </section>
 
-    <!-- <section>
-      <label class="label">Add new item</label>
-      <div class="control is-grouped">
-        <div class="control is-expanded">
-          <input type="text" class="input" placeholder="Item Title" v-model ="newItemTitle"/>
-        </div>
-        <div class="control">
-          <a class="button is-primary" @click="addItem">Create</a>
-        </div>
-      </div>
-      <div class="control">
-        <textarea class="textarea" placeholder="Item content" v-model ="newItemContent"></textarea>
-      </div>
-      <div class="control">
-        <a class="button" @click="cancel">Cancel</a>
-      </div>
-    </section> -->
-
     <div class="control has-addons has-addons-centered adjustSize">
       <a class="button is-primary is-medium" @click="addItem">Add New Item</a>
     </div>
@@ -86,26 +68,10 @@ export default {
 
   data(){
     return{
-      attendence:
-      // this.presets.attendence,
-
-      "Students are expected to attend all classes. An attendance sign-in sheet may be passed around"+
-"during lectures to monitor attendance. You are responsible for material covered and"+
-"announcements made in class, whether or not you are in class.",
-      honor_code: "It is expected that each student in this course will conduct himself or herself within the guidelines of the UNC"+
-"honor code. All academic work should be done with the high level of honesty and integrity this university demands."+
-"You are expected to produce your own work in this class. If you have any questions about your responsibility or"+
-"your instructor’s responsibility as a faculty member under the Honor Code, please talk with me or Senior Associate"+
-"Dean Charlie Tuggle, or you may speak with a representative of the Student Attorney Office or the Office of the"+
-"Dean of Students.",
-      diversity:"The University’s policy on Prohibiting Harassment and Discrimination is outlined in the 2011-2012 Undergraduate"+
-"Bulletin http://www.unc.edu/ugradbulletin/. UNC is committed to providing an inclusive and welcoming"+
-"environment for all members of our community and does not discriminate in offering access to its educational"+
-"programs and activities on the basis of age, gender, race, color, national origin, religion, creed, disability, veteran’s"+
-"status, sexual orientation, gender identity, or gender expression.",
-      special:"If you require special accommodations to attend or participate in this course, please let the instructor know as "+
-"soon as possible. If you need information about disabilities visit the Accessibility Services website at https://"+
-"accessibility.unc.edu/",
+      attendence: this.presets.attendence,
+      honor_code: this.presets.honor_code,
+      diversity:  this.presets.diversity,
+      special: this.presets.special,
       newItemTitle: '',
       newItemContent: '',
       finished: false,

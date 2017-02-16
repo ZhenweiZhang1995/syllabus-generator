@@ -23,10 +23,10 @@
 
     <div v-if="activeTab" class="content has-text-centered">
       <transition name="slide-fade">
-        <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab" ></basic>
-        <description v-if="activeTab.componentName === 'description'" :tab="activeTab"></description>
-        <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab"></assignment>
-        <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab"></grade>
+        <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab" :presets="presets"></basic>
+        <description v-if="activeTab.componentName === 'description'" :tab="activeTab" :presets="presets"></description>
+        <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab" :presets="presets"></assignment>
+        <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab" :presets="presets"></grade>
         <additional v-if="activeTab.componentName === 'additional'" :tab="activeTab" :presets="presets"></additional>
         <preview v-if="activeTab.componentName === 'preview'" :tab="activeTab"></preview>
       </transition>
