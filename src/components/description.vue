@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="description">
     <br>
+    <label class="label">Class Description</label>
     <div class="control">
       <textarea class="textarea" placeholder="Class Description" ></textarea>
     </div>

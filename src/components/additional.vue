@@ -35,10 +35,12 @@
       <transition name="fade">
         <div v-show ="!item.finished">
           <div>
+            <br>
             <!-- <label class="label">{{ item.itemTitle }}</label> -->
             <input type="text" class="input center-input" placeholder="Item Title" v-model ="item.itemTitle"/>
           </div>
             <textarea class="textarea"  placeholder="Item Content" v-model ="item.itemContent"></textarea>
+            <br>
             <div class="control">
               <a class="button is-primary" @click="done(item)">Delete</a>
             </div>

@@ -7,8 +7,8 @@
       <!-- <div class="is-centered is-medium "> -->
         <!-- <transition name= "fade"> -->
         <div class="tabs is-centered is-medium">
-          <ul class="tabs">
-              <li v-for="tab in tabs">
+          <ul>
+              <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
                   <a :href="tab.href" @click="changeTab(tab)">{{ tab.title }}</a>
               </li>
           </ul>
@@ -21,7 +21,7 @@
 
     <transition name="slide-fade">
       <div v-if="activeTab" class="content has-text-centered">
-        <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab"></basic>
+        <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab" ></basic>
         <description v-if="activeTab.componentName === 'description'" :tab="activeTab"></description>
         <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab"></assignment>
         <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab"></grade>
@@ -31,13 +31,13 @@
     </transition>
 
 
-    <a class="button is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
+    <a class="button button-style is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
     </a>
-    <a class="button is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
+    <a class="button button-style is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
       <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
     </a>
-    <a class="button is-primary is-large is-pulled-right" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
+    <a class="button button-style is-primary is-large is-pulled-right" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
     </a>
 
@@ -98,36 +98,43 @@ export default {
     return {
       activeTab: null,
       currentQuestion : 20,
+      isActive: false,
       tabs: [
       {
         title: 'Basic',
         text: 'Introduction of the course',
         componentName: 'basic',
+        isActive: false,
       },
       {
         title: 'Description',
         text: 'Class Description',
-        componentName: 'description'
+        componentName: 'description',
+        isActive: false,
       },
       {
         title: 'Homework',
         text: 'Homework & Assignments',
-        componentName: 'assignment'
+        componentName: 'assignment',
+        isActive: false,
       },
       {
         title: 'Exam & Grades',
         text: 'Exam & Grades',
-        componentName: 'grade'
+        componentName: 'grade',
+        isActive: false,
       },
       {
         title: 'Additional',
         text: 'Additional',
-        componentName: 'additional'
+        componentName: 'additional',
+        isActive: false,
       },
       {
         title: 'Preview',
         text: 'Preview of your syllabus',
-        componentName: 'preview'
+        componentName: 'preview',
+        isActive: false,
       },
     ],
     // ,
@@ -141,28 +148,39 @@ export default {
     }
   },
   methods:{
-    changeTab (tab) {
-      this.activeTab = tab
+    changeTab (t) {
+      this.cancelActive();
+      this.activeTab = t;
+      t.isActive = true;
     },
     formContinue(){
       var currentIndex = this.tabs.indexOf(this.activeTab);
       return currentIndex < (this.tabs.length-1);
     },
     next () {
+      this.cancelActive();
       var currentIndex = this.tabs.indexOf(this.activeTab)
       currentIndex++
       if (currentIndex > this.tabs.length - 1) {
         currentIndex = 0
       }
-      this.activeTab = this.tabs[currentIndex]
+      this.activeTab = this.tabs[currentIndex];
+      this.tabs[currentIndex].isActive = true;
     },
     prev () {
+      this.cancelActive();
       var currentIndex = this.tabs.indexOf(this.activeTab)
       currentIndex--
       if (currentIndex < 0) {
         currentIndex = this.tabs.length - 1
       }
-      this.activeTab = this.tabs[currentIndex]
+      this.activeTab = this.tabs[currentIndex];
+      this.tabs[currentIndex].isActive = true;
+    },
+    cancelActive(){
+      for( var i=0;i<this.tabs.length;i++){
+        this.tabs[i].isActive = false;
+      }
     }
 
   },
@@ -180,6 +198,7 @@ export default {
 
   mounted () {
     this.activeTab = this.tabs[0];
+    this.tabs[0].isActive = true;
     // console.log('App -> mounted.');
     axios.get('/preset/preset.json')
       .then((response) => {
@@ -215,9 +234,9 @@ export default {
   transform: translateX(10px);
   opacity: 0;
   }
-  .button{
+  .button-style{
     margin-right: 15%;
-    margin-top: 2%;
+    /*margin-top: 2%;*/
     margin-bottom: 5%;
     margin-left: 15%;
   }
