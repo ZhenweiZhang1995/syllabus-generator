@@ -9,14 +9,14 @@
         <div class="tabs is-centered is-medium">
           <ul>
               <li v-for="tab in tabs" :class="{ 'is-active': tab.isActive }">
-                  <a :href="href" @click="changeTab(tab)">{{ tab.title }}</a>
+                  <a :href="tab.href" @click="changeTab(tab)">{{ tab.title }}</a>
               </li>
           </ul>
         </div>
         <!-- </transision> -->
       <!-- </div> -->
 
-      <transition name= "slide-fade">
+      <transition name= "fade">
       <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
     </transition>
     </div>
@@ -146,7 +146,7 @@ export default {
 
   computed:{
     href() {
-        return '#' + this.activeTab.title.toLowerCase().replace(/ /g, '-');
+        return '#' + this.title.toLowerCase().replace(/ /g, '-');
     },
     currentQuestion(){
       return ((this.tabs.indexOf(this.activeTab)+1)/6)*100;
