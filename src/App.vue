@@ -16,19 +16,21 @@
         <!-- </transision> -->
       <!-- </div> -->
 
+      <transition name= "fade">
       <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
+    </transition>
     </div>
 
-    <transition name="slide-fade">
-      <div v-if="activeTab" class="content has-text-centered">
+    <div v-if="activeTab" class="content has-text-centered">
+      <transition name="slide-fade">
         <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab" ></basic>
         <description v-if="activeTab.componentName === 'description'" :tab="activeTab"></description>
         <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab"></assignment>
         <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab"></grade>
         <additional v-if="activeTab.componentName === 'additional'" :tab="activeTab"></additional>
         <preview v-if="activeTab.componentName === 'preview'":tab="activeTab"></preview>
-      </div>
-    </transition>
+      </transition>
+    </div>
 
 
     <a class="button button-style is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
@@ -97,7 +99,7 @@ export default {
   data () {
     return {
       activeTab: null,
-      currentQuestion : 20,
+      // currentQuestion : 0,
       isActive: false,
       tabs: [
       {
@@ -145,6 +147,9 @@ export default {
   computed:{
     href() {
         return '#' + this.title.toLowerCase().replace(/ /g, '-');
+    },
+    currentQuestion(){
+      return ((this.tabs.indexOf(this.activeTab)+1)/6)*100;
     }
   },
   methods:{
@@ -224,7 +229,7 @@ export default {
   }
 
   .slide-fade-enter-active {
-  transition: all .8s ease;
+  transition: all 1s ease;
   }
   /*.slide-fade-leave-active {
   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
@@ -239,5 +244,11 @@ export default {
     /*margin-top: 2%;*/
     margin-bottom: 5%;
     margin-left: 15%;
+  }
+  .fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0
   }
 </style>
