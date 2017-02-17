@@ -15,7 +15,6 @@
         </div>
         <!-- </transision> -->
       <!-- </div> -->
-
       <transition name= "fade">
       <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
     </transition>
@@ -93,9 +92,7 @@ import axios from 'axios'
 
 export default {
   name: 'app',
-  // props:{
-  //   activeTab:{componentName:'basic'}
-  // },
+
   data () {
     return {
       activeTab: null,
@@ -202,16 +199,17 @@ export default {
   },
 
   mounted () {
+    console.log('App -> mounted.');
     this.activeTab = this.tabs[0];
     this.tabs[0].isActive = true;
-    // console.log('App -> mounted.');
+
+
     axios.get('/preset/preset.json')
       .then((response) => {
         console.log(response.data)
         this.presets = response.data
       })
   }
-
 }
 </script>
 

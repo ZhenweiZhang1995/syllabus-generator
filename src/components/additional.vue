@@ -54,6 +54,7 @@
       <a class="button is-primary is-medium" @click="addItem">Add New Item</a>
     </div>
 
+    <a class="button is-primary is-medium" @click="save">Save Form</a>
 
 
   </div>
@@ -104,7 +105,16 @@ export default {
       done(i) {
         i.finished = true;
       },
-  },
+      save(){
+        console.log('TimerForm -> save');
+        this.$evt.$emit('save', {
+          attendence: this.attendence,
+          honor_code: this.honor_code,
+          diversity:  this.diversity,
+          special: this.special,
+        })
+      }
+  }
 
 
 
