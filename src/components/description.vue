@@ -3,7 +3,7 @@
     <br>
     <label class="label">Class Description</label>
     <div class="control">
-      <textarea class="textarea" placeholder="Class Description" ></textarea>
+      <textarea class="textarea" placeholder="Class Description" v-model ="classDescription"></textarea>
     </div>
 
     <br>
@@ -20,6 +20,7 @@ export default {
   data(){
     return{
       prequisite:"There is no prerequisite in this class",
+      classDescription:'',
     }
   },
   props: ['tab']

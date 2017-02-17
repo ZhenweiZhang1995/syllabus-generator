@@ -16,10 +16,10 @@
 
             <div class="control is-grouped">
                   <span class="select">
-                    <select>
-                      <option>Assignment</option>
-                      <option>Paper</option>
-                      <option>Project</option>
+                    <select v-model ="item.homeworktype">
+                      <option value="assign">Assignment</option>
+                      <option value="paper">Paper</option>
+                      <option value="proj">Project</option>
                     </select>
                   </span>
               <input class="input" type="text" placeholder="Number" v-model ="item.assignNum">
@@ -75,13 +75,15 @@ export default {
   data(){
     return{
       AssignmentDescription:"",
+      newHomeworktype:'',
       newAssignNum:'',
       newItemDescription:'',
       newItemContent:'',
       finished: false,
       editing: false,
       items: [{
-        assignNum:"1",
+        homeworktype:'',
+        assignNum:'1',
         itemDescription:"Write an essay about UNC in general",
         itemContent:"This should be 10k words long,single space",
         finished: false,
@@ -92,18 +94,21 @@ export default {
   props: ['tab'],
   methods: {
     cancel() {
+        this.newHomeworktype ='';
         this.newAssignNum = '';
         this.newItemDescription = '';
         this.newItemContent = '';
       },
       addItem() {
         this.items.push({
+          homeworktype:this.newHomeworktype,
           assignNum:this.newAssignNum,
           itemDescription: this.newItemDescription,
           itemContent: this.newItemContent,
           finished: false,
           editing: false
         })
+        this.newHomeworktype ='';
         this.newAssignNum = '';
         this.newItemDescription = '';
         this.newItemContent = '';

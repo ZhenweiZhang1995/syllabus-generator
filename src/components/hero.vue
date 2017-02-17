@@ -5,17 +5,7 @@
     <div class="hero-head">
       <header class="nav">
         <div class="container">
-          <!-- A logo placed on to the top left -->
-          <!-- <div class="nav-left">
-            <a class="nav-item">
-              <img src="images/bulma-type-white.png" alt="Logo">
-            </a>
-          </div> -->
-          <!-- <span class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span> -->
+
           <div class="nav-right nav-menu">
             <a class="nav-item is-active">
               Home
@@ -26,14 +16,7 @@
             <a class="nav-item">
               Contact
             </a>
-            <!-- <span class="nav-item">
-              <a class="button is-primary is-inverted">
-                <span class="icon">
-                  <i class="fa fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span> -->
+
           </div>
         </div>
       </header>

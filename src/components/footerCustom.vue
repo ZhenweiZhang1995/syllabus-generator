@@ -4,14 +4,18 @@
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC ANS 4.0</a>.
+        <strong>Syllabus Generator</strong> by <a href="https://github.com/ZhenweiZhang1995">Zhenwei Zhang &nbsp<i class="fa fa-github fa-2x"></i></a>
       </p>
       <p>
-        <a class="icon" href="https://github.com/jgthms/bulma">
+        <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>
+      </p>
+      <p>
+        <strong>Vue.js</strong> from <a href="https://vuejs.org">https://vuejs.org</a>
+      </p>
+      <p>
+        <!-- <a class="icon" href="https://github.com/jgthms/bulma">
           <i class="fa fa-github"></i>
-        </a>
+        </a> -->
       </p>
     </div>
   </div>
@@ -25,4 +29,10 @@ export default {
 </script>
 
 <style lang="css">
+ .fa{
+   margin-top: -3px;
+ }
+ .footer{
+   height: 60%;
+ }
 </style>
