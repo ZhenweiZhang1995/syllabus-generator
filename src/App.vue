@@ -70,7 +70,10 @@
 
     <!-- </tabs> -->
     <br>
-    <!-- <footerCustom></footerCustom> -->
+    <br>
+    <br>
+    <br>
+    <footerCustom></footerCustom>
   </div>
 </template>
 
