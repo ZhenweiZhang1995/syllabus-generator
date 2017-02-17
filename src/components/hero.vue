@@ -13,7 +13,7 @@
             <a class="nav-item" href="#Preview">
               Review your syllabus
             </a>
-            <a class="nav-item">
+            <a class="nav-item" href="http://www.zhangzhenwei.com/portfolio/about-me/">
               Contact
             </a>
 

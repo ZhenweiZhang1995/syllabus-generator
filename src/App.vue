@@ -15,13 +15,14 @@
         </div>
         <!-- </transision> -->
       <!-- </div> -->
-      <transition name= "fade">
-      <progress class="progress is-primary" max="100" :value="currentQuestion">70%</progress>
-    </transition>
+      <!-- <transition name= "fade"> -->
+      <progress class="progress is-primary" max="100" :value="currentQuestion"></progress>
+    <!-- </transition> -->
     </div>
 
     <div v-if="activeTab" class="content has-text-centered">
       <transition name="slide-fade">
+        <welcome v-if="activeTab.componentName === 'welcome'" :tab="activeTab" :presets="presets"></welcome>
         <basic v-if="activeTab.componentName === 'basic'" :tab="activeTab" :presets="presets"></basic>
         <description v-if="activeTab.componentName === 'description'" :tab="activeTab" :presets="presets"></description>
         <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab" :presets="presets"></assignment>
@@ -37,8 +38,10 @@
     <a class="button button-style is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
       <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
     </a>
-    <a class="button button-style is-primary is-large is-pulled-right noprint" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
+
+    <a class="button button-style is-primary is-large is-pulled-right noprint tooltip" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      <span class="tooltiptext">Click on "Destination" and choose "Save as PDF"</span>
     </a>
 
     <footerCustom class ="margin-modify noprint"></footerCustom>
@@ -57,6 +60,7 @@ import assignment from './components/assignment.vue'
 import grade from './components/grade.vue'
 import preview from './components/preview.vue'
 import footerCustom from './components/footerCustom.vue'
+import welcome from './components/welcome.vue'
 import axios from 'axios'
 
 
@@ -70,6 +74,12 @@ export default {
       // currentQuestion : 0,
       isActive: false,
       tabs: [
+      {
+        title: 'Welcome',
+        text: 'Introduction of the Site',
+        componentName: 'welcome',
+        isActive: false,
+        },
       {
         title: 'Basic',
         text: 'Introduction of the course',
@@ -117,7 +127,7 @@ export default {
         return '#' + this.title.toLowerCase().replace(/ /g, '-');
     },
     currentQuestion(){
-      return ((this.tabs.indexOf(this.activeTab)+1)/6)*100;
+      return ((this.tabs.indexOf(this.activeTab)+1)/this.tabs.length)*100;
     }
   },
   methods:{
@@ -169,7 +179,8 @@ export default {
     assignment,
     grade,
     footerCustom,
-    preview
+    preview,
+    welcome
   },
 
   mounted () {
@@ -232,6 +243,45 @@ export default {
     .noprint{
       display:none;
     }
+  }
+
+  .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 470px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 7px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      top: 150%;
+      left: 50%;
+      margin-left: -235px;
+      /*opacity: 0.7;*/
+      opacity: 0;
+      transition: opacity 0.8s;
+  }
+
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent black transparent;
+  }
+
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity:0.7;
+  }
+
+  .progress{
+    transition: width 1s;
+    transition-timing-function: ease-in-out;
   }
 </style>
 
