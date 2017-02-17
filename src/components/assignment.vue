@@ -36,6 +36,8 @@
             </div>
         </div>
       </transition>
+      <br>
+      <br>
     </template>
 
     </section>
@@ -75,14 +77,14 @@ export default {
   data(){
     return{
       AssignmentDescription:"",
-      newHomeworktype:'',
+      newHomeworktype:'assign',
       newAssignNum:'',
       newItemDescription:'',
       newItemContent:'',
       finished: false,
       editing: false,
       items: [{
-        homeworktype:'',
+        homeworktype:'assign',
         assignNum:'1',
         itemDescription:"Write an essay about UNC in general",
         itemContent:"This should be 10k words long,single space",

@@ -106,7 +106,7 @@ export default {
         i.finished = true;
       },
       save(){
-        console.log('TimerForm -> save');
+        console.log('Form -> save');
         this.$evt.$emit('save', {
           attendence: this.attendence,
           honor_code: this.honor_code,
