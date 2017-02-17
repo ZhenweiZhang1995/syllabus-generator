@@ -54,7 +54,7 @@
       <a class="button is-primary is-medium" @click="addItem">Add New Item</a>
     </div>
 
-    <a class="button is-primary is-medium" @click="save">Save Form</a>
+    <a class="button is-primary is-medium" @click="save()">Save Form</a>
 
 
   </div>

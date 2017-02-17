@@ -1,7 +1,14 @@
 <template lang="html">
   <div id="pdf" class="preview">
     <p>
+
+
+      <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
       {{ this.formData.attendence }}
+      <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
+
+
+
       <h1>{{ this.formData.courseTitle }}{{ this.formData.courseNumber }}{{ this.formData.courseName }}</h1>
       <p>Instructor:{{ this.formData.mrmrs }} {{ this.formData.instructor }}</p>
       <p>Email: {{ this.formData.email }}</p>

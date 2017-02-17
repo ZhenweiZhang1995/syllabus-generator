@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <hero></hero>
+    <hero class="noprint"></hero>
     <br>
 
-    <div class="fixAtTop">
+    <div class="fixAtTop noprint">
       <!-- <div class="is-centered is-medium "> -->
         <!-- <transition name= "fade"> -->
         <div class="tabs is-centered is-medium">
@@ -31,17 +31,17 @@
       </transition>
     </div>
 
-    <a class="button button-style is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
+    <a class="button button-style is-primary is-large is-pulled-left noprint" v-if="" @click ="prev()">Previous &nbsp
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
     </a>
     <a class="button button-style is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
       <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
     </a>
-    <a class="button button-style is-primary is-large is-pulled-right" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
+    <a class="button button-style is-primary is-large is-pulled-right noprint" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
     </a>
 
-    <footerCustom class ="margin-modify"></footerCustom>
+    <footerCustom class ="margin-modify noprint"></footerCustom>
   </div>
 </template>
 
@@ -154,6 +154,9 @@ export default {
       for( var i=0;i<this.tabs.length;i++){
         this.tabs[i].isActive = false;
       }
+    },
+    printPDF(){
+      window.print();
     }
 
   },
@@ -223,5 +226,11 @@ export default {
   .margin-modify{
     margin-top: 8%;
     /*height:20%;*/
+  }
+
+  @media print{
+    .noprint{
+      display:none;
+    }
   }
 </style>
