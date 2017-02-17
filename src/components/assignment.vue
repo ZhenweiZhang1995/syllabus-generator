@@ -67,6 +67,8 @@
       <a class="button is-primary is-medium" @click="addItem">Add New Assignment/Paper/Project</a>
     </p>
 
+    <a class="button is-primary is-medium" @click="save()">Save Form</a>
+
 
 
   </div>
@@ -118,6 +120,13 @@ export default {
       done(i) {
         i.finished = true;
       },
+      save(){
+        console.log('AssignmentForm -> save');
+        this.$evt.$emit('save', {
+          AssignmentDescription: this.AssignmentDescription,
+          Assignmentitems: this.items,
+        })
+      }
   },
 }
 </script>

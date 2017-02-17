@@ -11,6 +11,7 @@
     <div class="control">
       <textarea class="textarea" placeholder="Class Prerequisites" v-model ="prequisite"></textarea>
     </div>
+    <a class="button is-primary is-medium" @click="save()">Save Form</a>
   </div>
 
 </template>
@@ -21,6 +22,15 @@ export default {
     return{
       prequisite:"There is no prerequisite in this class",
       classDescription:'',
+    }
+  },
+  methods:{
+    save(){
+      console.log('DescriptionForm -> save');
+      this.$evt.$emit('save', {
+        classDescription: this.classDescription,
+        prequisite: this.prequisite,
+      })
     }
   },
   props: ['tab']

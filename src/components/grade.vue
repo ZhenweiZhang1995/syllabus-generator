@@ -11,6 +11,7 @@
     <div class="control">
       <textarea class="textarea" placeholder="Class Prerequisites" v-model ="grading"></textarea>
     </div>
+    <a class="button is-primary is-medium" @click="save()">Save Form</a>
   </div>
 </template>
 
@@ -26,6 +27,15 @@ export default {
     'presets',
     'tab'
   ],
+  methods:{
+    save(){
+      console.log('GradeForm -> save');
+      this.$evt.$emit('save', {
+        examdate: this.examdate,
+        grading: this.grading,
+      })
+    }
+  }
 }
 </script>
 

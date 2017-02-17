@@ -112,6 +112,7 @@ export default {
           honor_code: this.honor_code,
           diversity:  this.diversity,
           special: this.special,
+          additionalitems : this.items,
         })
       }
   }

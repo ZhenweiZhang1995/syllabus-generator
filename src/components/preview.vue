@@ -1,49 +1,46 @@
 <template lang="html">
   <div id="pdf" class="preview">
-    <p>
 
-
-      <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
-      <!-- {{ this.formData[0].examdate }} -->
-      <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
-
-
-
-      <!-- <h1>{{ this.formData.courseTitle }}{{ this.formData.courseNumber }}{{ this.formData.courseName }}</h1>
-      <p>Instructor:{{ this.formData.mrmrs }} {{ this.formData.instructor }}</p>
-      <p>Email: {{ this.formData.email }}</p>
-      <p>Class Time: {{ this.formData.classDay }} {{ this.formData.classTime }} </p>
-      <p>Location: {{ this.formData.classLocation }}</p>
-      <p>Office Hour: {{ this.formData.officeHourDay }}{{ this.formData.officeHourTime }}</p>
-      <p>Office Hour Location: {{ this.formData.officeHourLocation }}</p>
-      <p>Course Material: {{ this.formData.material }}</p>
-      <p>Course Website: {{ this.formData.website }}</p>
+      <h1>{{ this.courseTitle }}{{ this.courseNumber }}{{ this.courseName }}</h1>
+      <p>Instructor:{{ this.mrmrs }} {{ this.instructor }}</p>
+      <p>Email: {{ this.email }}</p>
+      <p>Class Time: {{ this.classDay }} {{ this.classTime }} </p>
+      <p>Location: {{ this.classLocation }}</p>
+      <p>Office Hour: {{ this.officeHourDay }}{{ this.officeHourTime }}</p>
+      <p>Office Hour Location: {{ this.officeHourLocation }}</p>
+      <p>Course Material: {{ this.material }}</p>
+      <p>Course Website: {{ this.website }}</p>
       <label class="label">Class Description</label>
-      <p>{{ this.formData.classDescription }}</p>
+      <p>{{ this.classDescription }}</p>
       <label class="label">Prequisite and Prior knowledge</label>
-      <p>{{ this.formData.prequisite }}</p>
+      <p>{{ this.prequisite }}</p>
       <label class="label">Homework Description</label>
-      <p>{{ this.formData.AssignmentDescription }}</p> -->
+      <p>{{ this.AssignmentDescription }}</p>
 
-      <!-- <p v-for="item in this.formData.items" v-if="item.finished==false">
-        <p>{{ this.formData.item.homeworktype }}{{ this.formData.item.assignNum }} : {{ this.formData.item.itemDescription }}</p>
-        <p>{{ this.formData.item.itemContent }}</p>
+      <!-- <p v-for="item in this.Assignmentitems" v-if="item.finished==false">
+        <p>{{ this.item.homeworktype }}{{ this.item.assignNum }} : {{ this.item.itemDescription }}</p>
+        <p>{{ this.item.itemContent }}</p>
       </p> -->
 
       <label class="label">Exam Schedule</label>
-      <p>{{ this.formData.examdate }}</p>
+      <p>{{ this.examdate }}</p>
       <label class="label">Grading critiaria</label>
-      <p>{{ this.formData.grading }}</p>
+      <p>{{ this.grading }}</p>
 
       <label class="label">Class attendance</label>
-      <p>{{ this.formData.attendence }}</p>
+      <p>{{ this.attendence }}</p>
       <label class="label">Honor Code and Plagiarism</label>
-      <p>{{ this.formData.honor_code }}</p>
+      <p>{{ this.honor_code }}</p>
       <label class="label">Diversity</label>
-      <p>{{ this.formData.diversity }}</p>
+      <p>{{ this.diversity }}</p>
       <label class="label">Special Accommodations</label>
-      <p>{{ this.formData.special }}</p>
-    </p>
+      <p>{{ this.special }}</p>
+
+      <p v-for="item in this.additionalitems" v-if="item.finished==false">
+        <h1>{{ this.item.itemTitle }}</h1>
+        <p>{{ this.item.itemContent }}</p>
+      </p>
+
   </div>
 
 </template>
@@ -54,8 +51,35 @@ export default {
 
   data () {
     return {
-      formData: [],
-      // latestform:[]
+      // formData: [],
+      attendence:'',
+      courseTitle:'',
+      courseNumber:'',
+      courseName:'',
+      mrmrs:'',
+      instructor:'',
+      email:'',
+      classDay:'',
+      classTime:'',
+      classLocation:'',
+      officeHourDay:'',
+      officeHourTime:'',
+      officeHourLocation:'',
+      material:'',
+      website:'',
+      classDescription:'',
+      prequisite:'',
+      AssignmentDescription:'',
+      examdate:'',
+      grading:'',
+      attendance:'',
+      diversity:'',
+      honor_code:'',
+      special:'',
+      Assignmentitems:[],
+      additionalitems:[],
+
+
     }
   },
 
@@ -71,19 +95,39 @@ export default {
     formSubmitted (data) {
       console.log('App -> formSubmitted', data);
 
-      this.formData.push({
-        attendence: data.attendence,
-        honor_code: data.honor_code,
-        diversity:  data.diversity,
-        special:    data.special
-      })
+      this.courseTitle = data.courseTitle;
+      this.courseNumber = data.courseNumber;
+      this.courseName = data.courseName;
+      this.mrmrs      = data.mrmrs;
+      this.instructor = data.instructor;
+      this.email = data.email;
+      this.classDay = data.classDay;
+      this.classTime = data.classTime;
+      this.classLocation = data.classLocation;
+      this.officeHourDay = data.classLocation;
+      this.officeHourTime = data.officeHourTime;
+      this.officeHourLocation = data.officeHourLocation;
+      this.material = data.material;
+      this.website = data.website;
+      this.classDescription = data.classDescription;
+      this.prequisite = data.prequisite;
+      this.AssignmentDescription = data.AssignmentDescription;
+      this.examdate = data.examdate;
+      this.grading = data.grading;
+      this.attendance = data.attendance;
+      this.honor_code = data.honor_code;
+      this.diversity = data.diversity;
+      this.special = data.special;
+      this.Assignmentitems = data.Assignmentitems;
+      this.additionalitems = data.additionalitems;
     },
-    // latestform(){
-    //   return this.formData[this.formData.length-1];
-    // }
   }
 }
 </script>
 
 <style lang="css">
+  .preview{
+    padding-left: 20%;
+    padding-right: 20%;
+  }
 </style>

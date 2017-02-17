@@ -123,10 +123,20 @@ export default {
     save(){
       console.log('BasicForm -> save');
       this.$evt.$emit('save', {
-        attendence: this.attendence,
-        honor_code: this.honor_code,
-        diversity:  this.diversity,
-        special: this.special,
+        courseTitle: this.courseTitle,
+        courseNumber: this.courseNumber,
+        courseName:  this.courseName,
+        mrmrs: this.mrmrs,
+        instructor: this.instructor,
+        email: this.email,
+        classDay: this.classDay,
+        classTime: this.classTime,
+        classLocation: this.classLocation,
+        officeHourDay: this.officeHourDay,
+        officeHourTime: this.officeHourTime,
+        officeHourLocation: this.officeHourLocation,
+        material: this.material,
+        website: this.website,
       })
     }
   }
