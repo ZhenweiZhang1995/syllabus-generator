@@ -4,7 +4,7 @@
 
 
       <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
-      {{ this.formData.attendence }}
+      <!-- {{ this.formData[0].examdate }} -->
       <!-- I HAVE ONLY EMIT FROM ADDITIONAL.VUE NOW SO LINE 5 SHOULD BE WORKING. -->
 
 
@@ -54,12 +54,13 @@ export default {
 
   data () {
     return {
-      formData: []
+      formData: [],
+      // latestform:[]
     }
   },
 
   mounted () {
-    console.log('App -> mounted.')
+    console.log('Preview -> mounted.')
     this.$evt.$on('save', this.formSubmitted)
   },
 
@@ -76,7 +77,10 @@ export default {
         diversity:  data.diversity,
         special:    data.special
       })
-    }
+    },
+    // latestform(){
+    //   return this.formData[this.formData.length-1];
+    // }
   }
 }
 </script>

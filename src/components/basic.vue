@@ -92,6 +92,8 @@
       <input class="input" type="text" placeholder="mejo.unc.edu" v-model="website">
     </p>
 
+    <a class="button is-primary is-medium" @click="save()">Save Form</a>
+
   </div>
 </template>
 
@@ -115,6 +117,17 @@ export default {
       material:'',
       website:'',
 
+    }
+  },
+  methods:{
+    save(){
+      console.log('BasicForm -> save');
+      this.$evt.$emit('save', {
+        attendence: this.attendence,
+        honor_code: this.honor_code,
+        diversity:  this.diversity,
+        special: this.special,
+      })
     }
   }
 }

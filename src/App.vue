@@ -28,11 +28,15 @@
         <assignment v-if="activeTab.componentName === 'assignment'" :tab="activeTab" :presets="presets"></assignment>
         <grade v-if="activeTab.componentName === 'grade'" :tab="activeTab" :presets="presets"></grade>
         <additional v-if="activeTab.componentName === 'additional'" :tab="activeTab" :presets="presets"></additional>
-        <preview v-if="activeTab.componentName === 'preview'" :tab="activeTab"></preview>
+        <!-- <preview v-show="activeTab.componentName === 'preview'" :tab="activeTab"></preview> -->
       </transition>
+      <transition name="slide-fade">
+        <preview v-show="activeTab.componentName === 'preview'" :tab="activeTab"></preview>
+      </transition>
+      <!-- <preview></preview> -->
     </div>
 
-    <a class="button button-style is-primary is-large is-pulled-left noprint" v-if="" @click ="prev()">Previous &nbsp
+    <a class="button button-style is-primary is-large is-pulled-left noprint" v-if="!formStart()" @click ="prev()">Previous &nbsp
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
     </a>
     <a class="button button-style is-primary is-large is-pulled-right" v-if="formContinue()" @click ="next()">Next &nbsp
@@ -140,6 +144,10 @@ export default {
       var currentIndex = this.tabs.indexOf(this.activeTab);
       return currentIndex < (this.tabs.length-1);
     },
+    formStart(){
+      var currentIndex = this.tabs.indexOf(this.activeTab);
+      return currentIndex == 0;
+    },
     next () {
       this.cancelActive();
       var currentIndex = this.tabs.indexOf(this.activeTab)
@@ -235,7 +243,7 @@ export default {
     opacity: 0
   }
   .margin-modify{
-    margin-top: 8%;
+    margin-top: 10%;
     /*height:20%;*/
   }
 

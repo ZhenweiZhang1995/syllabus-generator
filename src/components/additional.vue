@@ -106,7 +106,7 @@ export default {
         i.finished = true;
       },
       save(){
-        console.log('Form -> save');
+        console.log('AdditionalForm -> save');
         this.$evt.$emit('save', {
           attendence: this.attendence,
           honor_code: this.honor_code,
