@@ -9,7 +9,7 @@
 
 
 
-      <h1>{{ this.formData.courseTitle }}{{ this.formData.courseNumber }}{{ this.formData.courseName }}</h1>
+      <!-- <h1>{{ this.formData.courseTitle }}{{ this.formData.courseNumber }}{{ this.formData.courseName }}</h1>
       <p>Instructor:{{ this.formData.mrmrs }} {{ this.formData.instructor }}</p>
       <p>Email: {{ this.formData.email }}</p>
       <p>Class Time: {{ this.formData.classDay }} {{ this.formData.classTime }} </p>
@@ -23,7 +23,7 @@
       <label class="label">Prequisite and Prior knowledge</label>
       <p>{{ this.formData.prequisite }}</p>
       <label class="label">Homework Description</label>
-      <p>{{ this.formData.AssignmentDescription }}</p>
+      <p>{{ this.formData.AssignmentDescription }}</p> -->
 
       <!-- <p v-for="item in this.formData.items" v-if="item.finished==false">
         <p>{{ this.formData.item.homeworktype }}{{ this.formData.item.assignNum }} : {{ this.formData.item.itemDescription }}</p>
