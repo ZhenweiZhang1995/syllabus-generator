@@ -31,7 +31,6 @@
       </transition>
     </div>
 
-
     <a class="button button-style is-primary is-large is-pulled-left" v-if="" @click ="prev()">Previous &nbsp
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
     </a>
@@ -42,38 +41,7 @@
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
     </a>
 
-
-
-      <!-- <tab name = "Basic" :selected ="true">
-        <h1>Introduction of the course</h1>
-        <basic></basic>
-      </tab>
-      <tab name = "Description">
-        <h1>Class Description</h1>
-        <description></description>
-      </tab>
-      <tab name = "Homework">
-        <h1>Homework & Assignments</h1>
-        <assignment></assignment>
-      </tab>
-      <tab name = "Exam & Grades">
-        <h1>Exam & Grades</h1>
-        <grade></grade>
-      </tab>
-      <tab name = "Additional">
-        <h1>Addtional</h1>
-        <additional :presets="presets"></additional>
-      </tab>
-      <tab name = "Preview">
-        <h1>Preview of your syllabus</h1>
-      </tab> -->
-
-    <!-- </tabs> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <footerCustom></footerCustom>
+    <footerCustom class ="margin-modify"></footerCustom>
   </div>
 </template>
 
@@ -251,5 +219,9 @@ export default {
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
     opacity: 0
+  }
+  .margin-modify{
+    margin-top: 8%;
+    /*height:20%;*/
   }
 </style>

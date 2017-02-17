@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     formSubmitted (data) {
-      console.log('App -> formSubmitted', data)
+      console.log('App -> formSubmitted', data);
 
       this.formData.push({
         attendence: data.attendence,
