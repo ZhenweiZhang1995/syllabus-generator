@@ -21,7 +21,7 @@ export default {
   data(){
     return{
       prequisite:"There is no prerequisite in this class",
-      classDescription:'',
+      classDescription:this.presets.classDescription,
     }
   },
   methods:{
@@ -33,7 +33,10 @@ export default {
       })
     }
   },
-  props: ['tab']
+  props:[
+    'presets',
+    'tab'
+  ]
 }
 </script>
 

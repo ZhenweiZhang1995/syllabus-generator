@@ -3,7 +3,7 @@
     <br>
     <label class="label">Class attendance</label>
     <div class="control">
-      <textarea class="textarea" placeholder="Class Description" v-model ="attendence">
+      <textarea class="textarea" placeholder="Class Description" v-model ="attendance">
       </textarea>
     </div>
 
@@ -69,7 +69,7 @@ export default {
 
   data(){
     return{
-      attendence: this.presets.attendence,
+      attendance: this.presets.attendance,
       honor_code: this.presets.honor_code,
       diversity:  this.presets.diversity,
       special: this.presets.special,
@@ -108,11 +108,11 @@ export default {
       save(){
         console.log('AdditionalForm -> save');
         this.$evt.$emit('save', {
-          attendence: this.attendence,
+          attendance: this.attendance,
           honor_code: this.honor_code,
           diversity:  this.diversity,
           special: this.special,
-          additionalitems : this.items,
+          additionalitems : this.items
         })
       }
   }

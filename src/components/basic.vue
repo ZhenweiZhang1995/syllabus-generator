@@ -5,12 +5,12 @@
     <p class="control has-addons">
       <span class="select">
         <select v-model="courseTitle">
-          <option value="busi">BUSI</option>
-          <option value="comm">COMM</option>
-          <option value="comp">COMP</option>
-          <option value="engl">ENGL</option>
-          <option value="math">MATH</option>
-          <option value="mejo">MEJO</option>
+          <option value="BUSI">BUSI</option>
+          <option value="COMM">COMM</option>
+          <option value="COMP">COMP</option>
+          <option value="ENGL">ENGL</option>
+          <option value="MATH">MATH</option>
+          <option value="MEJO">MEJO</option>
         </select>
       </span>
       <input class="input is-expanded" type="text" placeholder="three digit number (e.g. 583)" v-model="courseNumber">
@@ -27,9 +27,9 @@
     <p class="control has-addons">
       <span class="select">
         <select v-model="mrmrs">
-          <option value="mr">Mr.</option>
-          <option value="mrs">Mrs.</option>
-          <option value="miss">Miss</option>
+          <option value="Mr.">Mr.</option>
+          <option value="Mrs.">Mrs.</option>
+          <option value="Miss">Miss</option>
         </select>
       </span>
       <input class="input is-expanded" type="text" placeholder="Instructor's name" v-model="instructor">
@@ -46,8 +46,8 @@
     <p class="control has-addons">
       <span class="select">
         <select v-model="classDay">
-          <option value="monwedfri">Mon/Wed/Fri</option>
-          <option value="tuethur">Tue/Thur</option>
+          <option value="Mon/Wed/Fri">Mon/Wed/Fri</option>
+          <option value="Tue/Thur">Tue/Thur</option>
         </select>
       </span>
       <input class="input is-expanded" type="text" placeholder="e.p. 5:30pm - 6:45pm" v-model="classTime">
@@ -64,11 +64,11 @@
     <p class="control has-addons">
       <span class="select">
         <select v-model="officeHourDay">
-          <option value="mon">Monday</option>
-          <option value="tue">Tuesday</option>
-          <option value="wed">Wednesday</option>
-          <option value="thur">Thursday</option>
-          <option value="fri">Friday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
         </select>
       </span>
       <input class="input is-expanded" type="text" placeholder="e.p. 1:00pm - 2:00pm" v-model="officeHourTime">
@@ -102,20 +102,20 @@ export default {
   props: ['tab'],
   data(){
     return{
-      courseTitle:'mejo',
-      courseNumber:'',
-      courseName:'',
-      mrmrs:'mr',
-      instructor:'',
-      email:'',
-      classDay:'monwedfri',
-      classTime:'',
-      classLocation:'',
-      officeHourDay:'mon',
-      officeHourTime:'',
-      officeHourLocation:'',
-      material:'',
-      website:'',
+      courseTitle:'MEJO',
+      courseNumber:'583',
+      courseName:'Multimedia Programming',
+      mrmrs:'Mr.',
+      instructor:'Seth Wright',
+      email:'wrightsa@unc.edu',
+      classDay:'Mon/Wed/Fri',
+      classTime:' 5:00 - 6:45pm',
+      classLocation:'Carroll 009',
+      officeHourDay:'Monday',
+      officeHourTime:'1:00 - 2:00pm',
+      officeHourLocation:'Student Union',
+      material:'Intro to JavaScript',
+      website:'www.unc.edu',
 
     }
   },

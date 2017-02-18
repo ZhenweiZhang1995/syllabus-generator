@@ -20,7 +20,7 @@
     <!-- </transition> -->
     </div>
 
-    
+
     <div v-if="activeTab" class="content has-text-centered">
       <transition name="slide-fade">
         <welcome v-if="activeTab.componentName === 'welcome'" :tab="activeTab" :presets="presets"></welcome>

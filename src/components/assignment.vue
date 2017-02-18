@@ -78,7 +78,7 @@
 export default {
   data(){
     return{
-      AssignmentDescription:"",
+      AssignmentDescription:"You need to put in assignment description here",
       newHomeworktype:'assign',
       newAssignNum:'',
       newItemDescription:'',
