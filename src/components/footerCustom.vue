@@ -13,6 +13,7 @@
         <strong>Vue.js</strong> from <a href="https://vuejs.org">https://vuejs.org</a>
       </p>
       <p>
+        <strong>font awesome</strong> from <a href="http://fontawesome.io">http://fontawesome.io</a>
         <!-- <a class="icon" href="https://github.com/jgthms/bulma">
           <i class="fa fa-github"></i>
         </a> -->

@@ -11,6 +11,7 @@
     <div class="control">
       <textarea class="textarea" placeholder="Class Prerequisites" v-model ="grading"></textarea>
     </div>
+    <br>
     <a class="button is-primary is-medium" @click="save()">Save Form</a>
   </div>
 </template>

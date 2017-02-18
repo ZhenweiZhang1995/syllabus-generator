@@ -67,6 +67,7 @@
       <a class="button is-primary is-medium" @click="addItem">Add New Assignment/Paper/Project</a>
     </p>
 
+    <br>
     <a class="button is-primary is-medium" @click="save()">Save Form</a>
 
 

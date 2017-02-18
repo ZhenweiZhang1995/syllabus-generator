@@ -42,9 +42,9 @@
 
     </div>
 
-      <!-- <p v-for="item in this.additionalitems" v-if="item.finished==false">
-        <h1>{{ this.item.itemTitle }}</h1>
-        <p>{{ this.item.itemContent }}</p>
+      <!-- <p v-for="additionalitem in additionalitems" v-if="additionalitem.finished==false">
+        <h1>{{ additionalitem.itemTitle }}</h1>
+        <p>{{ additionalitem.itemContent }}</p>
       </p> -->
 
   </div>
@@ -54,14 +54,6 @@
 <script>
 export default {
   props: ['tab'],
-
-  // watch: {
-  // input: function () {
-  //   if (isLocalStorage() /* function to detect if localstorage is supported*/) {
-  //     localStorage.setItem('storedData', this.input)
-  //     }
-  //   }
-  // },
 
   data () {
     return {
@@ -100,12 +92,10 @@ export default {
   mounted () {
     console.log('Preview -> mounted.')
     this.$evt.$on('save', this.formSubmitted)
-    // this.$evt.$on('saveAdditional', this.formSubmitted)
   },
 
   beforeDestroy () {
     this.$evt.$off('save', this.formSubmitted)
-    // this.$evt.$off('saveAdditional', this.formSubmitted)
   },
   methods: {
     formSubmitted (data) {

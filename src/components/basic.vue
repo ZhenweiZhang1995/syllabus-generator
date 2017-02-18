@@ -92,6 +92,7 @@
       <input class="input" type="text" placeholder="mejo.unc.edu" v-model="website">
     </p>
 
+    <br>
     <a class="button is-primary is-medium" @click="save()">Save Form</a>
 
   </div>
@@ -148,4 +149,5 @@ export default {
     padding-left: 30%;
     padding-right: 30%;
   }
+
 </style>
