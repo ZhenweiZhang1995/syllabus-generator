@@ -42,26 +42,6 @@
 
     </section>
 
-  <!-- <form class="addProject">
-    <br>
-    <div class="control is-grouped">
-          <span class="select">
-            <select>
-              <option>Assignment</option>
-              <option>Paper</option>
-              <option>Project</option>
-            </select>
-          </span>
-      <input class="input" type="text" placeholder="Number" v-model ="newAssignNum">
-      <input class="input is-expanded" type="text" placeholder="Description" v-model ="newItemDescription">
-      <p class="control">
-        <a class="button is-info" @click="addItem">+</a>
-      </p>
-    </div>
-    <p class="control">
-      <textarea class="textarea" placeholder="Requirments" v-model ="newItemContent"></textarea>
-    </p>
-  </form> -->
 
     <p class="control has-addons has-addons-centered adjustSize">
       <a class="button is-primary is-medium" @click="addItem">Add New Assignment/Paper/Project</a>

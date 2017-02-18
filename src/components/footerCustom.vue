@@ -14,9 +14,6 @@
       </p>
       <p>
         <strong>font awesome</strong> from <a href="http://fontawesome.io">http://fontawesome.io</a>
-        <!-- <a class="icon" href="https://github.com/jgthms/bulma">
-          <i class="fa fa-github"></i>
-        </a> -->
       </p>
     </div>
   </div>

@@ -29,14 +29,13 @@
 
     <br>
 
-    <section>
-      <!-- <div class="card"> -->
+    <!-- <section>
+
     <template v-for="item in items">
       <transition name="fade">
         <div v-show ="!item.finished">
           <div>
             <br>
-            <!-- <label class="label">{{ item.itemTitle }}</label> -->
             <input type="text" class="input center-input" placeholder="Item Title" v-model ="item.itemTitle"/>
           </div>
             <textarea class="textarea"  placeholder="Item Content" v-model ="item.itemContent"></textarea>
@@ -52,7 +51,7 @@
 
     <div class="control has-addons has-addons-centered adjustSize">
       <a class="button is-primary is-medium" @click="addItem">Add New Item</a>
-    </div>
+    </div> -->
 
     <br>
     <a class="button is-primary is-medium" @click="save()">Save Form</a>

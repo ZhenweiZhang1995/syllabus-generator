@@ -44,7 +44,7 @@
       <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
     </a>
 
-    <a class="button button-style is-primary is-large is-pulled-right noprint tooltip" @click ="printPDF()" v-else>Get a PDF version of your syllabus &nbsp
+    <a class="button button-style is-primary is-large is-pulled-right noprint tooltip pdf" @click ="printPDF()" v-else>Get a PDF version &nbsp
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
       <span class="tooltiptext">Click on "Destination" and choose "Save as PDF"</span>
     </a>
