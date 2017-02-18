@@ -21,11 +21,6 @@
       <label class="label">Homework Description</label>
       <p>{{ this.AssignmentDescription }}</p>
 
-      <!-- <p v-for="item in this.Assignmentitems" v-if="item.finished==false">
-        <p>{{ this.item.homeworktype }}{{ this.item.assignNum }} : {{ this.item.itemDescription }}</p>
-        <p>{{ this.item.itemContent }}</p>
-      </p> -->
-
       <label class="label">Exam Schedule</label>
       <p>{{ this.examdate }}</p>
       <label class="label">Grading critiaria</label>
@@ -41,12 +36,6 @@
       <p>{{ this.special }}</p>
 
     </div>
-
-      <!-- <p v-for="additionalitem in additionalitems" v-if="additionalitem.finished==false">
-        <h1>{{ additionalitem.itemTitle }}</h1>
-        <p>{{ additionalitem.itemContent }}</p>
-      </p> -->
-
   </div>
 
 </template>
