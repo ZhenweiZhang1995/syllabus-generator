@@ -2,6 +2,9 @@
 
 > A syllabus generator which allow guide user to fill in blanks and generate a syllabus step by step
 
+## Attention
+
+Be sure to click save button on each step, other wise the data that was put in will not show up on the preview tab
 ## Build Setup
 
 ``` bash
